@@ -1,0 +1,30 @@
+.inputField {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.inputField:focus {
+  border-color: var(--orange);
+  outline: 0;
+}
+
+.inputField::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--textTertiary);
+  opacity: 1; /* Firefox */
+}
+
+.inputField:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--textTertiary);
+}
+
+.inputField::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--textTertiary);
+}
