@@ -7,6 +7,12 @@ const roboto = Roboto({
   weight: "400",
 });
 
+const robotoItalic = Roboto({
+  subsets: ["cyrillic"],
+  weight: "400",
+  style: "italic",
+});
+
 type Props = {
   children: string;
   italic?: boolean;
@@ -17,8 +23,7 @@ export const Text = ({ children, italic }: Props) => {
     <p
       className={classNames(
         styles.text,
-        roboto.className,
-        italic ? styles.italic : undefined
+        italic ? robotoItalic.className : roboto.className
       )}
     >
       {children}

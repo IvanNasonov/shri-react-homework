@@ -1,5 +1,6 @@
 import "./globals.css";
-import styles from "./layout.module.css";
+
+import { Header } from "@ui/organisms";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={styles.page}>{children}</body>
+      <body>
+        <Header cartAmount={10} />
+        <section className="page">{children}</section>
+      </body>
     </html>
   );
 }

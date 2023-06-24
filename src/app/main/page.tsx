@@ -1,11 +1,4 @@
-import { Roboto } from "next/font/google";
-import { Title, Text } from "@ui/typography";
-import { FilmCard } from "@/ui/organisms";
-
-const roboto = Roboto({
-  weight: "700",
-  subsets: ["cyrillic"],
-});
+import { FilmCard } from "@ui/organisms";
 
 const Main = () => {
   return (
