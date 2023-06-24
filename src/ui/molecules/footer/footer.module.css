@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  background-color: var(--gray);
+}
+
+.text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.link {
+  opacity: 1;
+
+  transition: 100ms;
+}
+
+.link:hover {
+  opacity: 0.75;
+
+  transition: 50ms;
+}
+
+.link:active {
+  opacity: 0.5;
+}

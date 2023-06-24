@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { Footer } from "@ui/molecules";
 import { Header } from "@ui/organisms";
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <Header cartAmount={10} />
         <section className="page">{children}</section>
+        <Footer />
       </body>
     </html>
   );

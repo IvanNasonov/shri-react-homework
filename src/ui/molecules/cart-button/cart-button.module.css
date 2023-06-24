@@ -14,6 +14,10 @@
   transition: opacity 50ms;
 }
 
+.cartButton:active {
+  opacity: 0.5;
+}
+
 .cartAmountContainer {
   width: 28px;
   height: 28px;
