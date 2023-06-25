@@ -1,0 +1,53 @@
+.control {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  padding: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  background-color: var(--bgPrimary);
+  text-align: left;
+
+  transition: border 150ms;
+  position: relative;
+}
+
+.control:hover {
+  border-color: var(--orangeDisabled);
+  transition: border 100ms;
+}
+
+.control:active {
+  opacity: 0.75;
+}
+
+.selected {
+  border: 1px solid var(--orange);
+
+  transition: border 100ms;
+}
+
+.title {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--textTertiary);
+}
+
+.titleSelected {
+  color: var(--textPrimary);
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+
+  transition: transform 200ms;
+}
+
+.iconSelected {
+  transform: rotate(180deg);
+
+  transition: transform 100ms;
+}

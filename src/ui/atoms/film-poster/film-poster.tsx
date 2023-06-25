@@ -14,7 +14,12 @@ export const FilmPoster = ({ src, filmTitle }: Props) => {
       width={100}
       height={120}
       alt={`Постер фильма${filmTitle ? " " + filmTitle : ""}`}
-      style={{ borderRadius: 8, objectFit: "cover" }}
+      style={{
+        borderRadius: 8,
+        objectFit: "cover",
+        width: "auto",
+        height: "auto",
+      }}
     />
   );
 };

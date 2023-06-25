@@ -15,6 +15,7 @@ type Props = {
 };
 
 export const InputField = ({ text, setText }: Props) => {
+  const hasText = text.length > 0;
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
@@ -22,7 +23,11 @@ export const InputField = ({ text, setText }: Props) => {
   return (
     <input
       type="text"
-      className={classNames(styles.inputField, sfProText.className)}
+      className={classNames(
+        styles.inputField,
+        sfProText.className,
+        hasText ? styles.selected : undefined
+      )}
       placeholder="Введите название"
       value={text}
       onChange={onChange}

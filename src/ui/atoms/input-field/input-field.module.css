@@ -28,3 +28,7 @@
   /* Microsoft Edge */
   color: var(--textTertiary);
 }
+
+.selected {
+  border: 1px solid var(--orange);
+}

@@ -1,0 +1,9 @@
+.text {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--textPrimary);
+}
+
+.disabled {
+  color: var(--textTertiary);
+}

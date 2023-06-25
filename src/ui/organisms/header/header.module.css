@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   position: fixed;
+  z-index: 1;
 
   width: 100vw;
   padding: 24px;
