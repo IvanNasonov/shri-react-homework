@@ -3,3 +3,7 @@ export { AmountButton } from "./amount-button/amount-button";
 export { Logo } from "./logo/logo";
 export { InputField } from "./input-field/input-field";
 export { DropDownList } from "./dropdown-list/dropdown-list";
+export { ReviewAvatar } from "./review-avatar/review-avatar";
+export { CartTotal } from "./cart-total/cart-total";
+export { ActionButton } from "./action-button/action-button";
+export { CloseButton } from "./close-button/close-button";

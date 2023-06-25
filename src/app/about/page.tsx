@@ -1,5 +1,7 @@
+import { AboutInfo } from "@ui/molecules";
+
 const About = () => {
-  return <h1>О нас</h1>;
+  return <AboutInfo />;
 };
 
 export default About;

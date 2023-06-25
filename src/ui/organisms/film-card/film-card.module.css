@@ -16,3 +16,22 @@
   flex-grow: 1;
   gap: 8px;
 }
+
+.delete {
+  border: none;
+  background-color: transparent;
+
+  transition: opacity 150ms;
+}
+
+.delete:hover {
+  opacity: 0.75;
+
+  transition: opacity 100ms;
+}
+
+.delete:active {
+  opacity: 0.5;
+
+  transition: opacity 50ms;
+}

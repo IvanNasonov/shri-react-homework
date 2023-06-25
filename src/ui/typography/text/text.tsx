@@ -16,6 +16,7 @@ type Props = {
   bold?: boolean;
   large?: boolean;
   medium?: boolean;
+  color?: string;
 };
 
 export const Text = ({
@@ -25,6 +26,7 @@ export const Text = ({
   className,
   large,
   medium,
+  color,
 }: Props) => {
   return (
     <p
@@ -37,6 +39,7 @@ export const Text = ({
         medium ? styles.medium : undefined,
         className
       )}
+      style={{ color: color }}
     >
       {children}
     </p>
