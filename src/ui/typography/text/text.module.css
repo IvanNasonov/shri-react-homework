@@ -2,8 +2,13 @@
   font-size: 16px;
   line-height: 20px;
   color: var(--textPrimary);
+  font-weight: 400;
 }
 
 .italic {
   font-style: italic;
+}
+
+.bold {
+  font-weight: 700;
 }

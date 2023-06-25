@@ -3,7 +3,6 @@ import { FilmCard, Filters } from "@ui/organisms";
 const Main = () => {
   return (
     <>
-      <Filters />
       <FilmCard
         genre="Фентези"
         title="Властелин колец: Братство кольца"

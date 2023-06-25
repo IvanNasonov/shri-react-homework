@@ -5,12 +5,18 @@ import { DropDownList } from "@ui/atoms";
 import { DropdownControl } from "@ui/molecules";
 
 type Props = {
-  selectedItem: string;
+  placeholderText: string;
+  selectedItem: string | null;
   items: string[];
   setSelectedItem: (item: string) => void;
 };
 
-export const Dropdown = ({ items, selectedItem, setSelectedItem }: Props) => {
+export const Dropdown = ({
+  items,
+  selectedItem,
+  setSelectedItem,
+  placeholderText,
+}: Props) => {
   const controlRef = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [controlDomRect, setControlDomRect] = useState<DOMRect | null>(null);
@@ -34,7 +40,9 @@ export const Dropdown = ({ items, selectedItem, setSelectedItem }: Props) => {
 
     setNewControlRect();
 
-    return () => window.removeEventListener("resize", setNewControlRect);
+    return () => {
+      window.removeEventListener("resize", setNewControlRect);
+    };
   }, []);
 
   return (
@@ -44,6 +52,7 @@ export const Dropdown = ({ items, selectedItem, setSelectedItem }: Props) => {
         onClick={toggleIsOpen}
         isListOpen={isOpen}
         ref={controlRef}
+        placeholderText={placeholderText}
       />
       {controlDomRect
         ? createPortal(

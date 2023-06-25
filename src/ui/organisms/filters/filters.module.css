@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  border-radius: 8px;
+  background-color: var(--bgPrimary);
+
+  width: 29%;
+  max-width: 408px;
+  padding: 24px;
+
+  position: fixed;
+  height: 76vh;
+}
+
+.title {
+  margin-bottom: 4px;
+}

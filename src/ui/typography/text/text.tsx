@@ -4,26 +4,26 @@ import classNames from "classnames";
 
 const roboto = Roboto({
   subsets: ["cyrillic"],
-  weight: "400",
-});
-
-const robotoItalic = Roboto({
-  subsets: ["cyrillic"],
-  weight: "400",
-  style: "italic",
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
 type Props = {
   children: string;
+  className: string;
   italic?: boolean;
+  bold?: boolean;
 };
 
-export const Text = ({ children, italic }: Props) => {
+export const Text = ({ children, italic, bold, className }: Props) => {
   return (
     <p
       className={classNames(
+        roboto.className,
         styles.text,
-        italic ? robotoItalic.className : roboto.className
+        italic ? styles.italic : undefined,
+        bold ? styles.bold : undefined,
+        className
       )}
     >
       {children}

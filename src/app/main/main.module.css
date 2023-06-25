@@ -1,0 +1,17 @@
+.filmsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.filtersSpacer {
+  width: 30%;
+  max-width: 408px;
+  margin-right: 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}

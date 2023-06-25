@@ -1,26 +1,25 @@
 import styles from "./dropdown-control.module.css";
 
 import classNames from "classnames";
-import localFont from "next/font/local";
-import { MutableRefObject, RefObject, forwardRef } from "react";
+import { forwardRef } from "react";
 
 import { IconArrow } from "../../icons";
 import { FormText } from "../../typography";
 
-const sfProText = localFont({
-  src: "../../../../public/assets/fonts/SF-Pro-Text-Regular.otf",
-});
-
 type Props = {
-  onClick: () => void;
   isListOpen: boolean;
-  selectedItem?: string;
+  selectedItem: string | null;
+  placeholderText: string;
+  onClick: () => void;
 };
 
 export const DropdownControl = forwardRef<HTMLButtonElement, Props>(
-  function DropdownControl({ selectedItem, onClick, isListOpen }, ref) {
+  function DropdownControl(
+    { selectedItem, onClick, isListOpen, placeholderText },
+    ref
+  ) {
     const isSelected = Boolean(selectedItem) || isListOpen;
-    const text = selectedItem ?? "Выберите жанр";
+    const text = selectedItem ?? placeholderText;
 
     return (
       <button
@@ -40,7 +39,10 @@ export const DropdownControl = forwardRef<HTMLButtonElement, Props>(
           )}
         />
         <FormText
-          className={classNames(isSelected ? styles.titleSelected : undefined)}
+          className={classNames(
+            styles.title,
+            isSelected ? styles.titleSelected : undefined
+          )}
         >
           {text}
         </FormText>
