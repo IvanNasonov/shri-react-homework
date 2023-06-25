@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import styles from "./text.module.css";
 import classNames from "classnames";
+import { ReactNode } from "react";
 
 const roboto = Roboto({
   subsets: ["cyrillic"],
@@ -9,13 +10,22 @@ const roboto = Roboto({
 });
 
 type Props = {
-  children: string;
-  className: string;
+  children?: ReactNode;
+  className?: string;
   italic?: boolean;
   bold?: boolean;
+  large?: boolean;
+  medium?: boolean;
 };
 
-export const Text = ({ children, italic, bold, className }: Props) => {
+export const Text = ({
+  children,
+  italic,
+  bold,
+  className,
+  large,
+  medium,
+}: Props) => {
   return (
     <p
       className={classNames(
@@ -23,6 +33,8 @@ export const Text = ({ children, italic, bold, className }: Props) => {
         styles.text,
         italic ? styles.italic : undefined,
         bold ? styles.bold : undefined,
+        large ? styles.large : undefined,
+        medium ? styles.medium : undefined,
         className
       )}
     >

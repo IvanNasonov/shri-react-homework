@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+  background-color: var(--bgPrimary);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.infoContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.infoCategory {
+  display: flex;
+  flex-direction: row;
+}
+
+.infoTitle {
+  margin-right: 8px;
+}
+
+.infoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.descriptionTitle {
+  margin-bottom: 16px;
+}

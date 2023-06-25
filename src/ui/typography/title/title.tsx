@@ -10,11 +10,22 @@ const roboto = Roboto({
 });
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
+  large?: boolean;
+  className?: string;
 };
 
-export const Title = ({ children }: Props) => {
+export const Title = ({ children, large, className }: Props) => {
   return (
-    <h3 className={classNames(styles.title, roboto.className)}>{children}</h3>
+    <h3
+      className={classNames(
+        styles.title,
+        roboto.className,
+        large ? styles.large : undefined,
+        className
+      )}
+    >
+      {children}
+    </h3>
   );
 };
