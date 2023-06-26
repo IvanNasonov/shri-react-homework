@@ -8,6 +8,7 @@ import Link from "next/link";
 import { IconClose } from "@ui/icons";
 
 type Props = {
+  id: string;
   imageSrc: string;
   title: string;
   genre: string;
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export const FilmCard = ({
+  id,
   genre,
   imageSrc,
   title,
@@ -26,7 +28,7 @@ export const FilmCard = ({
     <section className={styles.container}>
       <FilmPoster src={imageSrc} filmTitle={title} />
       <div className={styles.textContainer}>
-        <Link href="/film/69">
+        <Link href={`/film/${id}`}>
           <Title>{title}</Title>
         </Link>
         <Text italic>{genre}</Text>

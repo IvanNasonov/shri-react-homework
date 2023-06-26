@@ -1,5 +1,6 @@
 import styles from "./main.module.css";
 
+import { FiltersContainer } from "@ui/organisms";
 import { Filters } from "@ui/organisms";
 
 export const metadata = {
@@ -14,7 +15,7 @@ export default function MainLayout({
 }) {
   return (
     <div className={styles.container}>
-      <Filters />
+      <FiltersContainer />
       <div className={styles.filtersSpacer} />
       <section className={styles.filmsList}>{children}</section>
     </div>

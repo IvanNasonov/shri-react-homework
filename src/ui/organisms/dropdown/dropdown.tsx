@@ -3,11 +3,12 @@ import { createPortal } from "react-dom";
 
 import { DropDownList } from "@ui/atoms";
 import { DropdownControl } from "@ui/molecules";
+import { DropdownItem } from "@types";
 
 type Props = {
   placeholderText: string;
   selectedItem: string | null;
-  items: string[];
+  items: DropdownItem[];
   setSelectedItem: (item: string) => void;
 };
 

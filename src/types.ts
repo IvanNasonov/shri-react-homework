@@ -4,3 +4,8 @@ export type FilmCard = {
   id: string;
   genre: string;
 };
+
+export type DropdownItem = {
+  name: string;
+  id?: string;
+};

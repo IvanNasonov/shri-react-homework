@@ -3,13 +3,15 @@
 import styles from "./dropdown-list.module.css";
 
 import classNames from "classnames";
-import { useEffect, useRef, MouseEvent } from "react";
+import { useEffect, useRef } from "react";
+
+import { DropdownItem } from "@types";
 
 import { FormText } from "../../typography";
 
 type Props = {
   isOpen: boolean;
-  items: string[];
+  items: DropdownItem[];
   topPosition: number;
   leftPosition: number;
   width: number;
@@ -52,13 +54,17 @@ export const DropDownList = ({
     >
       {items.map((item) => {
         const onClick = () => {
-          onClickItem(item);
+          onClickItem(item.id ?? item.name);
           closeList();
         };
 
         return (
-          <button className={styles.item} key={item} onClick={onClick}>
-            <FormText>{item}</FormText>
+          <button
+            className={styles.item}
+            key={item.id ?? item.name}
+            onClick={onClick}
+          >
+            <FormText>{item.name}</FormText>
           </button>
         );
       })}

@@ -1,35 +1,7 @@
-import { FilmCard, Filters } from "@ui/organisms";
+import { MoviesListContainer } from "@ui/organisms";
 
 const Main = () => {
-  return (
-    <>
-      <FilmCard
-        genre="Фентези"
-        title="Властелин колец: Братство кольца"
-        imageSrc="https://i.postimg.cc/pdCLNMqX/1.webp"
-      />
-      <FilmCard
-        genre="Фентези"
-        title="Властелин колец: Братство кольца"
-        imageSrc="https://i.postimg.cc/pdCLNMqX/1.webp"
-      />
-      <FilmCard
-        genre="Фентези"
-        title="Властелин колец: Братство кольца"
-        imageSrc="https://i.postimg.cc/pdCLNMqX/1.webp"
-      />
-      <FilmCard
-        genre="Фентези"
-        title="Властелин колец: Братство кольца"
-        imageSrc="https://i.postimg.cc/pdCLNMqX/1.webp"
-      />
-      <FilmCard
-        genre="Фентези"
-        title="Властелин колец: Братство кольца"
-        imageSrc="https://i.postimg.cc/pdCLNMqX/1.webp"
-      />
-    </>
-  );
+  return <MoviesListContainer />;
 };
 
 export default Main;

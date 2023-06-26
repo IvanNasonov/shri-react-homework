@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { AppProvider } from "@store/provider";
 import { Footer } from "@ui/molecules";
 import { Header } from "@ui/organisms";
 
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <Header cartAmount={10} />
-        <section className="page">{children}</section>
-        <Footer />
+        <AppProvider>
+          <Header cartAmount={10} />
+          <section className="page">{children}</section>
+          <Footer />
+        </AppProvider>
       </body>
     </html>
   );

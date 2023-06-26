@@ -26,6 +26,7 @@ export const MoviesList = ({
             key={film.id}
             withDeleteButton={withDeleteButton}
             onDeletePress={onDeletePress}
+            id={film.id}
           />
         );
       })}
