@@ -10,9 +10,9 @@ type Props = {
 export const ReviewsList = ({ reviews }: Props) => {
   return (
     <section className={styles.list}>
-      {reviews.map(({ id, name, rating, text, avatarUrl }) => (
+      {reviews.map(({ id, name, rating, text, avatarUrl }, index) => (
         <ReviewCard
-          key={id}
+          key={id + index}
           author={name}
           rating={rating}
           review={text}

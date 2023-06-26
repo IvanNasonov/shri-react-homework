@@ -25,7 +25,7 @@ export const InputField = ({ setText }: Props) => {
   useEffect(() => {
     const debounceTimeout = setTimeout(() => {
       setText(debouncedText);
-    }, 300);
+    }, 200);
 
     return () => clearTimeout(debounceTimeout);
   }, [debouncedText, setText]);

@@ -37,7 +37,7 @@ export const MoviesListContainer = () => {
 
   const filteredMovies = useMemo(() => {
     return movies?.filter((movie) => {
-      if (!filmGenre && filmTitle) {
+      if (!filmGenre && !filmTitle) {
         return true;
       }
 
