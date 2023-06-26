@@ -1,7 +1,6 @@
 "use client";
 
 import { useGetMovieByIdQuery } from "@store/api";
-import { CACHE_TIME } from "@constants";
 import { Loader } from "@ui/atoms";
 
 import { FilmInfo } from "./film-info";
@@ -12,9 +11,7 @@ type Props = {
 };
 
 export const FilmInfoContainer = ({ id }: Props) => {
-  const { data, isLoading } = useGetMovieByIdQuery(id, {
-    pollingInterval: CACHE_TIME,
-  });
+  const { data, isLoading } = useGetMovieByIdQuery(id);
 
   if (isLoading) {
     return <Loader />;

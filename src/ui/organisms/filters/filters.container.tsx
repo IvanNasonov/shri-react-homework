@@ -5,17 +5,16 @@ import { DropdownItem } from "@types";
 import { CACHE_TIME } from "@constants";
 
 import { Filters } from "./filters";
-import { getTranslatedGenre } from "../../../lib";
+import { CinemaFilterValueContext, getTranslatedGenre } from "../../../lib";
+import { useContext } from "react";
 
 export const FiltersContainer = () => {
-  const { data: cinemas, isLoading: isLoadingCinemas } = useGetCinemasQuery(
-    undefined,
-    {
-      pollingInterval: CACHE_TIME,
-    }
-  );
+  const cinema = useContext(CinemaFilterValueContext);
 
-  const { genres, isLoadingGenres } = useGetMoviesQuery(undefined, {
+  const { data: cinemas, isLoading: isLoadingCinemas } =
+    useGetCinemasQuery(undefined);
+
+  const { genres, isLoadingGenres } = useGetMoviesQuery(cinema?.id, {
     pollingInterval: CACHE_TIME,
     selectFromResult: (result) => {
       return {
@@ -40,7 +39,7 @@ export const FiltersContainer = () => {
   return (
     <Filters
       cinemas={cinemas}
-      isLoading={isLoadingCinemas || isLoadingCinemas}
+      isLoading={isLoadingCinemas || isLoadingGenres}
       genres={genres}
     />
   );

@@ -1,20 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useContext, useMemo } from "react";
 import { useGetMoviesQuery } from "@store/api";
 
 import { Loader } from "@ui/atoms";
-import { CACHE_TIME } from "@constants";
+import {
+  TitleFilterValueContext,
+  GenreFilterValueContext,
+  getTranslatedGenre,
+  CinemaFilterValueContext,
+} from "@lib";
 
 import { MoviesList } from "./movies-list";
-import { getTranslatedGenre } from "../../../lib";
 
 export const MoviesListContainer = () => {
-  const { movies, isLoading } = useGetMoviesQuery(undefined, {
-    pollingInterval: CACHE_TIME,
+  const filmTitle = useContext(TitleFilterValueContext);
+  const filmGenre = useContext(GenreFilterValueContext);
+  const cinema = useContext(CinemaFilterValueContext);
+
+  const { movies, isLoading, isFetching } = useGetMoviesQuery(cinema?.id, {
     selectFromResult: (data) => {
       return {
         isLoading: data.isLoading,
+        isFetching: data.isFetching,
         movies: data.data?.map(({ genre, title, id, posterUrl }) => {
           return {
             title,
@@ -27,9 +35,25 @@ export const MoviesListContainer = () => {
     },
   });
 
-  if (isLoading) return <Loader />;
+  const filteredMovies = useMemo(() => {
+    return movies?.filter((movie) => {
+      if (!filmGenre && filmTitle) {
+        return true;
+      }
 
-  if (!movies) return null;
+      const matchesTitle = filmTitle
+        ? movie.title.toLowerCase().includes(filmTitle.toLowerCase())
+        : true;
 
-  return <MoviesList items={movies} />;
+      const matchesGenre = filmGenre ? movie.genre === filmGenre.name : true;
+
+      return matchesGenre && matchesTitle;
+    });
+  }, [movies, filmGenre, filmTitle]);
+
+  if (isLoading || isFetching) return <Loader />;
+
+  if (!filteredMovies) return null;
+
+  return <MoviesList items={filteredMovies} />;
 };

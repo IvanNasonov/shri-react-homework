@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 import { DropdownItem } from "@types";
 
 import { FormText } from "../../typography";
+import { Loader } from "../loader/loader";
 
 type Props = {
   isOpen: boolean;
@@ -15,9 +16,10 @@ type Props = {
   topPosition: number;
   leftPosition: number;
   width: number;
+  isLoading?: boolean;
 
   closeList: () => void;
-  onClickItem: (item: string) => void;
+  onClickItem: (item: DropdownItem) => void;
 };
 
 export const DropDownList = ({
@@ -28,6 +30,7 @@ export const DropDownList = ({
   width,
   onClickItem,
   closeList,
+  isLoading,
 }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -43,6 +46,8 @@ export const DropDownList = ({
     };
   }, [closeList, isOpen]);
 
+  const listWithDefaultOption = [{ name: "Не выбран" }, ...items];
+
   return (
     <div
       ref={containerRef}
@@ -52,22 +57,26 @@ export const DropDownList = ({
       )}
       style={{ top: topPosition, left: leftPosition, width }}
     >
-      {items.map((item) => {
-        const onClick = () => {
-          onClickItem(item.id ?? item.name);
-          closeList();
-        };
+      {isLoading ? (
+        <Loader />
+      ) : (
+        listWithDefaultOption.map((item) => {
+          const onClick = () => {
+            onClickItem(item);
+            closeList();
+          };
 
-        return (
-          <button
-            className={styles.item}
-            key={item.id ?? item.name}
-            onClick={onClick}
-          >
-            <FormText>{item.name}</FormText>
-          </button>
-        );
-      })}
+          return (
+            <button
+              className={styles.item}
+              key={item.id ?? item.name}
+              onClick={onClick}
+            >
+              <FormText>{item.name}</FormText>
+            </button>
+          );
+        })
+      )}
     </div>
   );
 };

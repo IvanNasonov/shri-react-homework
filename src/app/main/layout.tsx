@@ -1,7 +1,7 @@
 import styles from "./main.module.css";
 
+import { FiltersProvider } from "@lib";
 import { FiltersContainer } from "@ui/organisms";
-import { Filters } from "@ui/organisms";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,9 +15,11 @@ export default function MainLayout({
 }) {
   return (
     <div className={styles.container}>
-      <FiltersContainer />
-      <div className={styles.filtersSpacer} />
-      <section className={styles.filmsList}>{children}</section>
+      <FiltersProvider>
+        <FiltersContainer />
+        <div className={styles.filtersSpacer} />
+        <section className={styles.filmsList}>{children}</section>
+      </FiltersProvider>
     </div>
   );
 }

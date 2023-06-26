@@ -1,17 +1,14 @@
 "use client";
-
 import styles from "./filters.module.css";
 
-import { useState } from "react";
-
-import { useGetCinemasQuery } from "@store/api";
-
-import { InputField, Loader } from "../../atoms";
-import { FormField } from "../../templates";
-import { Text } from "../../typography";
-import { Dropdown } from "../dropdown/dropdown";
 import { Cinema } from "@store/types";
 import { DropdownItem } from "@types";
+
+import { Loader } from "../../atoms";
+import { Text } from "../../typography";
+import { FiltersTextInput } from "../filters-text-input/filters-text-input";
+import { FiltersGenreSelect } from "../filters-genre-select/filters-genre-select";
+import { FiltersCinemaSelect } from "../filters-cinema-select/filters-cinema-select";
 
 type Props = {
   isLoading: boolean;
@@ -20,8 +17,6 @@ type Props = {
 };
 
 export const Filters = ({ isLoading, cinemas, genres }: Props) => {
-  const [filmTitle, setFilmTitle] = useState("");
-
   return (
     <div className={styles.container}>
       {isLoading ? (
@@ -31,38 +26,9 @@ export const Filters = ({ isLoading, cinemas, genres }: Props) => {
           <Text bold className={styles.title}>
             Фильтры поиска
           </Text>
-          <FormField
-            label="Название"
-            InputComponent={
-              <InputField text={filmTitle} setText={setFilmTitle} />
-            }
-          />
-          {genres ? (
-            <FormField
-              label="Жанр"
-              InputComponent={
-                <Dropdown
-                  selectedItem={null}
-                  items={genres}
-                  setSelectedItem={(item) => console.log(item)}
-                  placeholderText="Выберите жанр"
-                />
-              }
-            />
-          ) : null}
-          {cinemas ? (
-            <FormField
-              label="Кинотеатр"
-              InputComponent={
-                <Dropdown
-                  selectedItem={null}
-                  items={cinemas}
-                  setSelectedItem={(item) => console.log(item)}
-                  placeholderText="Выберите кинотеатр"
-                />
-              }
-            />
-          ) : null}
+          <FiltersTextInput />
+          {genres ? <FiltersGenreSelect genres={genres} /> : null}
+          {cinemas ? <FiltersCinemaSelect cinemas={cinemas} /> : null}
         </>
       )}
     </div>

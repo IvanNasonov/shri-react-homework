@@ -1,24 +1,34 @@
-import classNames from "classnames";
+"use client";
 import styles from "./input-field.module.css";
 
+import classNames from "classnames";
+import { ChangeEvent, useEffect, useState } from "react";
 import localFont from "next/font/local";
-
-import { ChangeEvent } from "react";
 
 const sfProText = localFont({
   src: "../../../../public/assets/fonts/SF-Pro-Text-Regular.otf",
 });
 
 type Props = {
-  text: string;
   setText: (newText: string) => void;
 };
 
-export const InputField = ({ text, setText }: Props) => {
-  const hasText = text.length > 0;
+export const InputField = ({ setText }: Props) => {
+  const [debouncedText, setDebouncedText] = useState("");
+
+  const hasText = debouncedText.length > 0;
+
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
+    setDebouncedText(event.target.value);
   };
+
+  useEffect(() => {
+    const debounceTimeout = setTimeout(() => {
+      setText(debouncedText);
+    }, 300);
+
+    return () => clearTimeout(debounceTimeout);
+  }, [debouncedText, setText]);
 
   return (
     <input
@@ -29,7 +39,7 @@ export const InputField = ({ text, setText }: Props) => {
         hasText ? styles.selected : undefined
       )}
       placeholder="Введите название"
-      value={text}
+      value={debouncedText}
       onChange={onChange}
     />
   );

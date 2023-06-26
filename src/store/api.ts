@@ -12,7 +12,7 @@ export const moviesApi = createApi({
     getMovies: builder.query<Movie[], string | undefined>({
       query: (query) => ({
         method: "GET",
-        url: `/movies${query ? `/cinemaId=${query}` : ""}`,
+        url: `/movies${query ? `?cinemaId=${query}` : ""}`,
       }),
     }),
     getMovieById: builder.query<Movie, string>({

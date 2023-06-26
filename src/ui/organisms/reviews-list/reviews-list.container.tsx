@@ -1,6 +1,5 @@
 "use client";
 
-import { CACHE_TIME } from "@constants";
 import { useGetReviewsForMovieQuery } from "@store/api";
 import { ReviewsList } from "./reviews-list";
 import { Loader } from "@ui/atoms";
@@ -10,9 +9,7 @@ type Props = {
 };
 
 export const ReviewsListContainer = ({ id }: Props) => {
-  const { data, isLoading } = useGetReviewsForMovieQuery(id, {
-    pollingInterval: CACHE_TIME,
-  });
+  const { data, isLoading } = useGetReviewsForMovieQuery(id);
 
   if (isLoading) return <Loader />;
 

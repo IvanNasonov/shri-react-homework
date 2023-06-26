@@ -9,7 +9,8 @@ type Props = {
   placeholderText: string;
   selectedItem: string | null;
   items: DropdownItem[];
-  setSelectedItem: (item: string) => void;
+  isLoading?: boolean;
+  setSelectedItem: (item: DropdownItem) => void;
 };
 
 export const Dropdown = ({
