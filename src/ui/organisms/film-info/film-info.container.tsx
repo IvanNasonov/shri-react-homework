@@ -28,6 +28,7 @@ export const FilmInfoContainer = ({ id }: Props) => {
       rating={data.rating}
       releaseYear={data.releaseYear}
       title={data.title}
+      id={id}
     />
   );
 };

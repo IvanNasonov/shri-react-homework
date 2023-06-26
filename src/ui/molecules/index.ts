@@ -1,5 +1,7 @@
 export { TicketCounter } from "./ticket-counter/ticket-counter";
+export { TicketCounterContainer } from "./ticket-counter/ticket-counter.container";
 export { CartButton } from "./cart-button/cart-button";
+export { CartButtonContainer } from "./cart-button/cart-button.container";
 export { Footer } from "./footer/footer";
 export { DropdownControl } from "./dropdown-control/dropdown-control";
 export { ReviewCard } from "./review-card/review-card";

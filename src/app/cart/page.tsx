@@ -1,48 +1,7 @@
-import { CartList } from "@ui/organisms";
+import { CartListContainer } from "@ui/organisms";
 
 const Cart = () => {
-  return (
-    <CartList
-      items={[
-        {
-          genre: "Фентези",
-          id: "123",
-          title: "Властелин колец: Братство кольца",
-          imageSrc: "https://i.postimg.cc/pdCLNMqX/1.webp",
-        },
-        {
-          genre: "Фентези",
-          id: "123",
-          title: "Властелин колец: Братство кольца",
-          imageSrc: "https://i.postimg.cc/pdCLNMqX/1.webp",
-        },
-        {
-          genre: "Фентези",
-          id: "123",
-          title: "Властелин колец: Братство кольца",
-          imageSrc: "https://i.postimg.cc/pdCLNMqX/1.webp",
-        },
-        {
-          genre: "Фентези",
-          id: "123",
-          title: "Властелин колец: Братство кольца",
-          imageSrc: "https://i.postimg.cc/pdCLNMqX/1.webp",
-        },
-        {
-          genre: "Фентези",
-          id: "123",
-          title: "Властелин колец: Братство кольца",
-          imageSrc: "https://i.postimg.cc/pdCLNMqX/1.webp",
-        },
-        {
-          genre: "Фентези",
-          id: "123",
-          title: "Властелин колец: Братство кольца",
-          imageSrc: "https://i.postimg.cc/pdCLNMqX/1.webp",
-        },
-      ]}
-    />
-  );
+  return <CartListContainer />;
 };
 
 export default Cart;

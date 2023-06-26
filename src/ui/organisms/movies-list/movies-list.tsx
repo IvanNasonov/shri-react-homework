@@ -7,7 +7,7 @@ import { FilmCard as FilmCardType } from "@types";
 type Props = {
   items: FilmCardType[];
   withDeleteButton?: boolean;
-  onDeletePress?: () => void;
+  onDeletePress?: (id: string) => void;
 };
 
 export const MoviesList = ({

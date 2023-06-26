@@ -6,6 +6,7 @@ import { FilmInfoHeader } from "../film-info-header/film-info-header";
 import { Title, Text } from "@ui/typography";
 
 type Props = {
+  id: string;
   imageSrc: string;
   title: string;
   genre: string;
@@ -23,16 +24,17 @@ export const FilmInfo = ({
   director,
   title,
   imageSrc,
+  id,
 }: Props) => {
   return (
     <section className={styles.container}>
       <FilmPoster filmTitle={title} src={imageSrc} large />
       <div className={styles.infoContainer}>
         <FilmInfoHeader
-          ticketAmount={10}
-          decrement={() => null}
-          increment={() => null}
           title={title}
+          id={id}
+          genre={genre}
+          imageSrc={imageSrc}
         />
         <div className={styles.infoGroup}>
           <span className={styles.infoCategory}>

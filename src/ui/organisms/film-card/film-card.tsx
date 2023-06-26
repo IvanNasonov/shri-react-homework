@@ -1,11 +1,11 @@
 "use client";
 import styles from "./film-card.module.css";
 
+import Link from "next/link";
+
 import { Title, Text } from "../../typography";
 import { CloseButton, FilmPoster } from "../../atoms";
-import { TicketCounter } from "../../molecules";
-import Link from "next/link";
-import { IconClose } from "@ui/icons";
+import { TicketCounterContainer } from "../../molecules";
 
 type Props = {
   id: string;
@@ -13,7 +13,7 @@ type Props = {
   title: string;
   genre: string;
   withDeleteButton?: boolean;
-  onDeletePress?: () => void;
+  onDeletePress?: (id: string) => void;
 };
 
 export const FilmCard = ({
@@ -34,9 +34,14 @@ export const FilmCard = ({
         <Text italic>{genre}</Text>
       </div>
 
-      <TicketCounter amount={0} decrement={() => null} increment={() => null} />
+      <TicketCounterContainer
+        genre={genre}
+        id={id}
+        imageSrc={imageSrc}
+        title={title}
+      />
       {withDeleteButton && onDeletePress ? (
-        <CloseButton onClick={onDeletePress} />
+        <CloseButton onClick={() => onDeletePress(id)} />
       ) : null}
     </section>
   );

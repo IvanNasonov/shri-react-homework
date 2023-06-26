@@ -1,11 +1,13 @@
-import { Text } from "@ui/typography";
 import styles from "./cart-total.module.css";
 
-type Props = {
-  ticketsAmount: number;
-};
+import { useSelector } from "react-redux";
 
-export const CartTotal = ({ ticketsAmount }: Props) => {
+import { Text } from "@ui/typography";
+import { getCartTotalAmount } from "@store/selectors";
+
+export const CartTotal = () => {
+  const ticketsAmount = useSelector(getCartTotalAmount);
+
   return (
     <div className={styles.container}>
       <Text bold>Итого билетов:</Text>

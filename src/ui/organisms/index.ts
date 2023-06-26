@@ -7,4 +7,5 @@ export { FilmInfoContainer } from "./film-info/film-info.container";
 export { MoviesList } from "./movies-list/movies-list";
 export { MoviesListContainer } from "./movies-list/movies-list.container";
 export { CartList } from "./cart-list/cart-list";
+export { CartListContainer } from "./cart-list/cart-list.container";
 export { ReviewsListContainer } from "./reviews-list/reviews-list.container";

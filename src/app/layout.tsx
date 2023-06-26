@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <AppProvider>
-          <Header cartAmount={10} />
+          <Header />
           <section className="page">{children}</section>
           <Footer />
         </AppProvider>

@@ -13,9 +13,10 @@ type Props = {
   children?: ReactNode;
   large?: boolean;
   className?: string;
+  color?: string;
 };
 
-export const Title = ({ children, large, className }: Props) => {
+export const Title = ({ children, large, className, color }: Props) => {
   return (
     <h3
       className={classNames(
@@ -24,6 +25,7 @@ export const Title = ({ children, large, className }: Props) => {
         large ? styles.large : undefined,
         className
       )}
+      style={{ color }}
     >
       {children}
     </h3>

@@ -4,23 +4,37 @@ import styles from "./ticket-counter.module.css";
 
 import { AmountButton } from "../../atoms";
 import { Title } from "../../typography";
+import React from "react";
 
-type Props = { increment: () => void; decrement: () => void; amount: number };
+type Props = {
+  amount: number;
+  totalAmount: number;
+  canIncrement: boolean;
+  canDecrement: boolean;
+  increment: () => void;
+  decrement: () => void;
+};
 
-export const TicketCounter = ({ increment, decrement, amount }: Props) => {
+export const TicketCounter = React.memo(function TicketCounter({
+  increment,
+  decrement,
+  amount,
+  canDecrement,
+  canIncrement,
+}: Props) {
   return (
     <div className={styles.container}>
       <AmountButton
         type={"decrement"}
-        isEnabled={amount > 0}
-        onClick={increment}
+        isEnabled={canDecrement}
+        onClick={decrement}
       />
       <Title>{amount}</Title>
       <AmountButton
         type={"increment"}
-        isEnabled={amount < 30}
+        isEnabled={canIncrement}
         onClick={increment}
       />
     </div>
   );
-};
+});

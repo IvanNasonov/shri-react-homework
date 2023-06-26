@@ -14,6 +14,8 @@ export const FilmPoster = ({ src, filmTitle, large }: Props) => {
       src={src}
       width={large ? 400 : 100}
       height={large ? 500 : 120}
+      priority={large}
+      loading={large ? undefined : "lazy"}
       alt={`Постер фильма${filmTitle ? " " + filmTitle : ""}`}
       className={styles.poster}
     />
