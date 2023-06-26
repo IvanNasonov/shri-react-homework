@@ -5,3 +5,4 @@ export { DropdownControl } from "./dropdown-control/dropdown-control";
 export { ReviewCard } from "./review-card/review-card";
 export { AboutInfo } from "./about-info/about-info";
 export { Modal } from "./modal/modal";
+export { AccordionItem } from "./accordion-item/accordion-item";

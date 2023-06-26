@@ -7,3 +7,4 @@ export { ReviewAvatar } from "./review-avatar/review-avatar";
 export { CartTotal } from "./cart-total/cart-total";
 export { ActionButton } from "./action-button/action-button";
 export { CloseButton } from "./close-button/close-button";
+export { QAndAHeader } from "./q-and-a-header/q-and-a-header";
